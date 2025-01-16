@@ -1,0 +1,24 @@
+/* position : elmenet postion 
+
+static
+absolute
+sticky 
+relative 
+fixed
+
+bt6 deafault element psotion are static
+
+stactic: left right top botton are not affect.\
+position: static; is not positioned in any special way; 
+it is always positioned according to the normal flow
+ of the page:
+*/
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.static{
+    border: 3px solid red;
+    position: static;
+}

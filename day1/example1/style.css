@@ -1,0 +1,11 @@
+.box{
+    width: 300px;
+    border: 2px solid red;
+    padding: 10px;
+    margin: 50px auto;
+}
+
+.box img{
+    width: 100%;
+    border-radius: 10px;
+}
