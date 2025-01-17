@@ -39,3 +39,36 @@
 
 /* relative ensure that absolute can move the parent elemenet */
 
+.bg{
+    width: 700px;
+    margin: 50px auto;
+    position: relative;
+    
+
+}
+
+.bg-img{
+    width: 100%;
+    border-radius: 5%;
+}
+
+.content{
+    position: absolute;
+    bottom: 0;
+    color: rgb(187, 30, 30);
+    left: 16px;
+    bottom: 60px;
+    font-size: larger;
+    margin-right: 40px;
+
+}
+
+.button{
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 16px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 60px;
+}
