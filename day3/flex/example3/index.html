@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Width Calculation - Product Row</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 2px solid #ddd;
+      background-color: #fff;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .item img {
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .item h2 {
+      font-size: 18px;
+      margin: 5px 0;
+      text-align: center;
+    }
+
+    .item p {
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .item button {
+      padding: 8px 12px;
+      background-color: #33C4FF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .item button:hover {
+      background-color: #1a9cd6;
+    }
+
+    .item1 {
+      flex: 1 1 200px;
+    }
+
+    .item2 {
+      flex: 2 1 300px;
+    }
+
+    .item3 {
+      flex: 1 1 100px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .item {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Responsive Product Row Example</h1>
+  <p>The container adjusts the layout and item sizes dynamically based on screen size:</p>
+  <div class="container">
+    <div class="item item1">
+      <img src="https://via.placeholder.com/100" alt="Product 1">
+      <h2>Product 1</h2>
+      <p>$20.00</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="item item2">
+      <img src="https://via.placeholder.com/100" alt="Product 2">
+      <h2>Featured Product</h2>
+      <p>$50.00</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="item item3">
+      <img src="https://via.placeholder.com/100" alt="Product 3">
+      <h2>Product 3</h2>
+      <p>$10.00</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+  <p>
+    In this example:
+    <ul>
+      <li><b>First item:</b> A regular product with a base width of 200px.</li>
+      <li><b>Second item:</b> A featured product that takes more space (300px base + growth).</li>
+      <li><b>Third item:</b> A compact product with a smaller base width of 100px.</li>
+    </ul>
+  </p>
+</body>
+</html>

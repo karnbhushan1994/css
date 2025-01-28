@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Responsive Dashboard</title>
+    <link rel="stylesheet" href="AdvancedResponsiveDashboard.css">
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <div class="sidebar" id="sidebar">
+        <div class="menu">
+          <div class="menu-item"><i class="fas fa-home"></i> Dashboard</div>
+          <div class="menu-item">
+            <i class="fas fa-chart-line"></i> Analytics
+          </div>
+          <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
+          <div class="menu-item"><i class="fas fa-user"></i> Profile</div>
+        </div>
+        <div class="footer">© 2025 Your Company</div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+          <div class="search-bar">
+            <input type="text" placeholder="Search..." />
+          </div>
+          <div class="icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats">
+          <div class="stat-card">
+            <h2>1,234</h2>
+            <p>New Users</p>
+          </div>
+          <div class="stat-card">
+            <h2>$56,789</h2>
+            <p>Total Revenue</p>
+          </div>
+          <div class="stat-card">
+            <h2>98%</h2>
+            <p>Satisfaction Rate</p>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts">
+          <div class="chart">
+            <h3>Sales Chart</h3>
+            <canvas id="salesChart"></canvas>
+          </div>
+          <div class="chart">
+            <h3>Users Chart</h3>
+            <canvas id="usersChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>John Doe</td>
+                <td>Active</td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>Jane Smith</td>
+                <td>Inactive</td>
+                <td><button>View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

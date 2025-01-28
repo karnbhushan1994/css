@@ -1,0 +1,19 @@
+.profile{
+    width: 600px;
+    margin: 60px auto;
+    display: flex;
+    gap: 16px;
+}
+
+.user{
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.btn{
+    background-color: black;
+    color: wheat;
+    padding: 14px 26px;
+    border-radius: 26px;
+}

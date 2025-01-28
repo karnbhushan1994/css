@@ -1,0 +1,22 @@
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card{
+    width: 260px;
+    padding: 8px;
+    border-radius: 14px;
+    border: 1px solid lightgreen;
+}
+.card-img{
+    width: 100%;
+    border-radius: 14px;
+}
+
+.flexbox{
+    display:flex; /* handle a child using flex here flexbox is the parent*/
+    gap: 20px;
+    justify-content: center;  /* you want to horizonatly move element */
+    flex-wrap: wrap;/* for responsive*/
+    
+}

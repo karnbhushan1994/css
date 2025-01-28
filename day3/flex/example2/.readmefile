@@ -1,0 +1,81 @@
+---
+
+#### **1. Container Width**
+- The container has a fixed width of **1000px**.
+- The child items inside the container share this width based on their `flex-basis` and `flex-grow` values.
+
+---
+
+#### **2. Flex-Basis**
+Each flex item has a `flex-basis` value, which acts as its starting width:
+- **Item 1:** `200px`
+- **Item 2:** `300px`
+- **Item 3:** `100px`
+
+The total `flex-basis` for all items is:
+```
+200px + 300px + 100px = 600px
+```
+
+---
+
+#### **3. Remaining Space**
+The container width is `1000px`, but the total `flex-basis` is `600px`. This leaves:
+```
+1000px - 600px = 400px
+```
+This remaining `400px` will be distributed among the items based on their `flex-grow` values.
+
+---
+
+#### **4. Flex-Grow Values**
+The `flex-grow` values for the items determine how much of the remaining space each item gets:
+- **Item 1:** `1`
+- **Item 2:** `2`
+- **Item 3:** `1`
+
+The total `flex-grow` is:
+```
+1 + 2 + 1 = 4
+```
+
+Each "unit" of grow corresponds to:
+```
+400px / 4 = 100px
+```
+
+---
+
+#### **5. Final Widths**
+Each item's final width is calculated as:
+```
+final width = flex-basis + (flex-grow * per-unit grow space)
+```
+
+- **Item 1:**
+  ```
+  200px + (1 * 100px) = 300px
+  ```
+- **Item 2:**
+  ```
+  300px + (2 * 100px) = 500px
+  ```
+- **Item 3:**
+  ```
+  100px + (1 * 100px) = 200px
+  ```
+
+---
+
+#### **6. Visual Representation**
+In the updated code:
+- `calc()` is used to explicitly calculate the width for each item.
+- The colors and labels in the items make it easier to visualize the result:
+  - **Item 1:** `300px`
+  - **Item 2:** `500px`
+  - **Item 3:** `200px`
+
+---
+
+### Summary:
+The `flex` property dynamically adjusts the widths of the items to ensure the total container space is used efficiently, following the defined rules of `flex-basis` and `flex-grow`. This approach creates a responsive layout that adapts based on the container's width. Let me know if you need further clarification or adjustments!

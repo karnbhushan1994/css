@@ -1,0 +1,120 @@
+    /* General Reset for consistent styling across browsers */
+    * {
+        margin: 0;                   /* Removes default margin */
+        padding: 0;                  /* Removes default padding */
+        box-sizing: border-box;      /* Ensures padding and border are included in width/height */
+      }
+  
+      /* Body Styling */
+      body {
+        font-family: Arial, sans-serif; /* Sets a clean, modern font */
+        background-color: #f8f9fa;      /* Light gray background for better contrast */
+        padding: 20px;                  /* Adds space around the main content */
+        display: flex;                  /* Enables Flexbox on the body */
+        justify-content: center;        /* Centers content horizontally */
+        align-items: center;            /* Centers content vertically */
+        min-height: 100vh;              /* Ensures the page takes full height */
+      }
+  
+      /* Main Flex Container */
+      .product-grid {
+        display: flex;                 /* Enables Flexbox */
+        flex-wrap: wrap;               /* Allows items to wrap to the next row */
+        gap: 20px;                     /* Adds spacing between items */
+        max-width: 1200px;             /* Restricts the container's width */
+        width: 100%;                   /* Ensures it scales to the screen width */
+      }
+  
+      /* Individual Product Card */
+      .product-card {
+        display: flex;                 /* Makes the card a Flexbox container */
+        flex-direction: column;        /* Stacks content vertically */
+        justify-content: space-between;/* Adds space between card sections */
+        flex: 1 1 calc(33.333% - 20px);/* Flexible width for 3 columns with a gap */
+        background: #ffffff;           /* White background for cards */
+        border: 1px solid #ddd;        /* Adds a light border around the card */
+        border-radius: 10px;           /* Rounds the corners */
+        overflow: hidden;              /* Ensures content doesn't spill out */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        transition: transform 0.3s ease; /* Smooth animation on hover */
+      }
+  
+      /* Hover Effect for Product Card */
+      .product-card:hover {
+        transform: translateY(-10px); /* Moves the card slightly upward */
+      }
+  
+      /* Product Image Section */
+      .product-image {
+        width: 100%;                  /* Ensures the image spans the full card width */
+        height: 200px;                /* Fixed height for uniformity */
+        background-size: cover;       /* Ensures the image covers the entire area */
+        background-position: center;  /* Centers the image */
+      }
+  
+      /* Product Details Section */
+      .product-details {
+        padding: 15px;                /* Adds space inside the details area */
+        display: flex;                /* Enables Flexbox */
+        flex-direction: column;       /* Stacks details vertically */
+        gap: 10px;                    /* Adds space between the title and price */
+      }
+  
+      /* Product Title */
+      .product-title {
+        font-size: 1.2em;             /* Larger font size for prominence */
+        font-weight: bold;            /* Bold text for emphasis */
+        color: #333;                  /* Dark gray color for text */
+      }
+  
+      /* Product Price */
+      .product-price {
+        font-size: 1.1em;             /* Slightly larger font for visibility */
+        color: #28a745;               /* Green color for pricing */
+      }
+  
+      /* Footer Section of the Card */
+      .product-footer {
+        display: flex;                /* Enables Flexbox */
+        justify-content: space-between;/* Spreads button and stock status */
+        align-items: center;          /* Centers content vertically */
+        padding: 15px;                /* Adds padding inside the footer */
+        border-top: 1px solid #ddd;   /* Adds a border to separate footer */
+      }
+  
+      /* Add to Cart Button */
+      .add-to-cart {
+        background-color: #007bff;    /* Blue background for the button */
+        color: white;                 /* White text for contrast */
+        border: none;                 /* Removes default border */
+        border-radius: 5px;           /* Rounds the button edges */
+        padding: 10px 15px;           /* Adds spacing inside the button */
+        cursor: pointer;              /* Changes cursor to pointer on hover */
+        font-size: 0.9em;             /* Slightly smaller text */
+        transition: background-color 0.3s ease; /* Smooth color transition */
+      }
+  
+      /* Hover Effect for Button */
+      .add-to-cart:hover {
+        background-color: #0056b3;    /* Darker blue on hover */
+      }
+  
+      /* Stock Status */
+      .stock-status {
+        font-size: 0.9em;             /* Smaller font size for subtlety */
+        color: #6c757d;               /* Gray color for neutral tone */
+      }
+  
+      /* Responsive Design: Tablets */
+      @media (max-width: 768px) {
+        .product-card {
+          flex: 1 1 calc(50% - 20px); /* Adjusts to 2 columns */
+        }
+      }
+  
+      /* Responsive Design: Mobile */
+      @media (max-width: 480px) {
+        .product-card {
+          flex: 1 1 100%;             /* Adjusts to 1 column */
+        }
+      }

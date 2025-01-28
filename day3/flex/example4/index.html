@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Width Calculation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      max-width: 1000px;
+      height: 100px;
+      border: 2px solid #333;
+      margin: 0 auto;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .item1 {
+      flex: 1 1 200px;
+      background-color: #FF5733;
+    }
+
+    .item2 {
+      flex: 2 1 300px;
+      background-color: #33C4FF;
+    }
+
+    .item3 {
+      flex: 1 1 100px;
+      background-color: #75FF33;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .item {
+        width: 100%;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Flex Width Calculation Demo</h1>
+  <p>The container is responsive. On smaller screens, the items will stack vertically:</p>
+  <div class="container">
+    <div class="item item1">1 (200px + Grow)</div>
+    <div class="item item2">2 (300px + Grow)</div>
+    <div class="item item3">1 (100px + Grow)</div>
+  </div>
+  <p>
+    In this example:
+    <ul>
+      <li><b>First item:</b> 200px base + (1 / 4 of remaining space)</li>
+      <li><b>Second item:</b> 300px base + (2 / 4 of remaining space)</li>
+      <li><b>Third item:</b> 100px base + (1 / 4 of remaining space)</li>
+    </ul>
+  </p>
+</body>
+</html>

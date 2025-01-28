@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Animated Search</title>
+  <link rel="stylesheet" href="advanceanimatedsearch.css">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Container */
+    .search-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 1200px;
+      width: 100%;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .search-bar button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* Filters Section */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .filter-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      animation: slideInUp 0.8s ease-in-out;
+    }
+
+    .filter-group label {
+      font-size: 14px;
+      color: #6c757d;
+    }
+
+    .filter-group select {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .filter-group select:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 8px rgba(108, 117, 125, 0.5);
+    }
+
+    /* Results Section */
+    .results {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .result-item {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: slideIn 0.5s ease forwards;
+    }
+
+    .result-item:nth-child(odd) {
+      animation-delay: 0.1s;
+    }
+
+    .result-item:nth-child(even) {
+      animation-delay: 0.2s;
+    }
+
+    .result-item h4 {
+      margin: 0;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      padding: 10px 15px;
+      background: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .pagination button:hover {
+      background: #007bff;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .pagination button.active {
+      background: #007bff;
+      color: white;
+    }
+
+    /* Keyframes for Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .filters {
+        flex-direction: column;
+      }
+
+      .result-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search items...">
+      <button onclick="filterResults()">Search</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label for="category">Category</label>
+        <select id="category" onchange="filterResults()">
+          <option value="all">All Categories</option>
+          <option value="electronics">Electronics</option>
+          <option value="fashion">Fashion</option>
+          <option value="books">Books</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="priceRange">Price Range</label>
+        <select id="priceRange" onchange="filterResults()">
+          <option value="all">All Prices</option>
+          <option value="0-50">Under $50</option>
+          <option value="50-100">$50 - $100</option>
+          <option value="100-200">$100 - $200</option>
+          <option value="200+">Above $200</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results" id="results">
+      <!-- Results dynamically populated -->
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination">
+      <!-- Pagination dynamically populated -->
+    </div>
+  </div>
+
+  <script>
+    const data = [
+      { id: 1, name: "Laptop", category: "electronics", price: 150 },
+      { id: 2, name: "Smartphone", category: "electronics", price: 100 },
+      { id: 3, name: "T-shirt", category: "fashion", price: 25 },
+      { id: 4, name: "Novel", category: "books", price: 15 },
+      { id: 5, name: "Headphones", category: "electronics", price: 75 },
+      { id: 6, name: "Jeans", category: "fashion", price: 60 },
+      { id: 7, name: "Textbook", category: "books", price: 120 },
+    ];
+
+    function renderResults(results) {
+      const resultsContainer = document.getElementById("results");
+      resultsContainer.innerHTML = "";
+
+      if (results.length === 0) {
+        resultsContainer.innerHTML = "<p>No results found.</p>";
+        return;
+      }
+
+      results.forEach((item) => {
+        const resultDiv = document.createElement("div");
+        resultDiv.classList.add("result-item");
+        resultDiv.innerHTML = `
+          <div>
+            <h4>${item.name}</h4>
+            <p>Category: ${item.category} | Price: $${item.price}</p>
+          </div>
+          <button>View</button>
+        `;
+        resultsContainer.appendChild(resultDiv);
+      });
+    }
+
+    function filterResults() {
+      const searchInput = document.getElementById("searchInput").value.toLowerCase();
+      const category = document.getElementById("category").value;
+      const priceRange = document.getElementById("priceRange").value;
+
+      const filtered = data.filter((item) => {
+        const matchesSearch = item.name.toLowerCase().includes(searchInput);
+        const matchesCategory = category === "all" || item.category === category;
+        const matchesPrice = (() => {
+          if (priceRange === "all") return true;
+          if (priceRange === "0-50") return item.price < 50;
+          if (priceRange === "50-100") return item.price >= 50 && item.price <= 100;
+          if (priceRange === "100-200") return item.price > 100 && item.price <= 200;
+          if (priceRange === "200+") return item.price > 200;
+        })();
+
+        return matchesSearch && matchesCategory && matchesPrice;
+      });
+
+      renderResults(filtered);
+    }
+
+    filterResults();
+  </script>
+</body>
+</html>

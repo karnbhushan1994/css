@@ -1,0 +1,27 @@
+.container {
+    display: flex;               /* Enables Flexbox */
+    flex-direction: row;         /* Main axis is horizontal (default) */
+    flex-wrap: wrap;             /* Items wrap to next line if necessary */
+    justify-content: space-between; /* Distribute space evenly on the main axis */
+    align-items: center;         /* Align items vertically in the center */
+    gap: 20px;                   /* Space between items */
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+  }
+
+  /* Flex Items */
+  .item {
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 200px; /* Grow, shrink, basis (flex-grow: 1, flex-shrink: 1, flex-basis: 200px) */
+    border: 2px solid #fff;
+  }
+
+  /* Special Item */
+  .item.special {
+    order: -1;         /* Moves this item to the start */
+    align-self: flex-end; /* Aligns this specific item to the bottom */
+  }
